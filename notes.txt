@@ -1,7 +1,9 @@
 
 For next troubleshooting:
+
 Are there , after each but last in create table?
 Is there ; at the end of create table?
 Is the %s being considered as a string because you used f''?
 Is there a RETURNING * on insert/save/create?
 When calling for run_sql result is the call being treated as a dict? because it returns a dict.
+When creating the instance that references another (has a parameter of class object), are you getting the id from the referencee? or the class object? depen.class.id and not depen.class
