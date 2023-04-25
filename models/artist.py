@@ -3,4 +3,4 @@ class Artist():
         self.name = name
         self.id = id
 
-# ID set to none as this is assigned by the db once saved
+# ID set to none as this is assigned by the db once saved/created

@@ -1,6 +1,39 @@
+1.
 "import psycopg2
  import psycopg2.extras as ext "
 psycopg2 for python/sql relation, extras for cursor(?)
 
+2.
+sql = f'INSERT INTO albums (title,genre,artist) VALUES (%s,%s,%s) RETURNING *'
+        # ^command    ^table   ^columns         ^to add    ^placeholder  ^return the row (for ID(?))
+Why do we need to return *? would it not return when run_sql() is being called?
 
+3.
+def insert(artist):
+    sql = 'INSERT INTO albums (name) VALUES (%s) RETURNING *'
+    values = [artist.name]
+    ...
+
+4.
+select_all() is not printing anything in to terminal.
+
+
+
+other.
+1. why does this not work? below #
+
+def delete(id):
+    task = None
+    sql = "DELETE FROM tasks WHERE id = %s"
+    value = [id]
+    run_sql(sql,value)
+
+######################
+    sql = "SELECT * FROM tasks WHERE id = %s"
+    value = [id]
+    row = run_sql(sql,value)
+    if row:
+        return "deleted successfully"
+    else:
+        return row
 

@@ -3,11 +3,11 @@ import psycopg2.extras as ext
 # psycopg2 for python/sql relation, extras for cursor(?)
 def run_sql(sql,values = None):
     conn = None  #connection
-    results = []
+    results = [] #will be added to, one [] per row with , separator
     try:
         #error handling, if it fails it goes for exceptions provided error, if it does not
         #succeed it will return exception, if it succeeds it will pass to finally.
-        conn = psycopg2.connect(dbname='task_manager')
+        conn = psycopg2.connect(dbname='music_lib')
             #conn is the connection, we are making the connection between python and the database
         cur = conn.cursor(cursor_factory=ext.DictCursor) #cursor - something we get from a connection
             # cursor '|' is something that iterates 1 character in a row at a time (or steps through), 
@@ -23,9 +23,9 @@ def run_sql(sql,values = None):
             #it starts with [],and for each row creates another [],
             #stage one will be [[]], when it iterates the values in row, it 'appends'
             #stage one will result in [[val1,val2,val3]]
-            #stage three will then go to the next row and add a new 'list', [[[val1,val2,val3],[]] it will repeat the process until it has ran the whole table
+            #stage three will then go to the next row and add a new 'list', [[[val1,val2,val3],[val4,val5,val6]] it will repeat the process until it has ran the whole table
         cur.close()
-            #terminating cursor
+            #terminating cursor because we're cool like that
     except (Exception, psycopg2.DatabaseError) as error:
         print(f"My error handling: {error}")
             #error handling
