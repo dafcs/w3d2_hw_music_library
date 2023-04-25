@@ -1,0 +1,6 @@
+"import psycopg2
+ import psycopg2.extras as ext "
+psycopg2 for python/sql relation, extras for cursor(?)
+
+
+
