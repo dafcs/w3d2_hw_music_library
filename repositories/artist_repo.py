@@ -22,7 +22,8 @@ def select(id):
     values = [id]
     row = run_sql(sql,values)
     if row is not None:
-        artist = Artist(row.name)
+        rowd = row[0]
+        artist = Artist(rowd['name'],rowd['id'])
     return artist
 
 #all

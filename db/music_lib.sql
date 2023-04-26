@@ -10,7 +10,6 @@ CREATE TABLE albums (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     genre VARCHAR(255),
-    artist_id INT NOT NULL REFERENCES artists(id)
+    artist_id INT NOT NULL REFERENCES artists(id) ON DELETE CASCADE
+                                                    -- ^ if artists is deleted then albums is deleted as consequence or in cascade
 );
-
-

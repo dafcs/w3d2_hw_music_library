@@ -7,5 +7,3 @@ artist = Artist('Jon Bovi')
 artist_repo.insert(artist)
 
 result = artist_repo.select_all()
-# for artist in result:
-#     print(result)
